@@ -23,5 +23,7 @@ private:
 	void BeginPlay() override;
 
 	ATank* GetPlayerTank() const;
+
+	void Tick(float) override;
 	
 };
