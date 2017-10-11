@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright me
 
 #pragma once
 
@@ -17,15 +17,18 @@ class BATTLETANK_API UTankMovementComponent : public UNavMovementComponent
 
 public:
 	UFUNCTION(BlueprintCallable, Category = Input)
-	void IntedMoveForward(float Throw);
+	void IntendMoveForward(float Throw);
 
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void Initialize(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet);
 
 	UFUNCTION(BlueprintCallable, Category = Input)
-	void IntedTurnRight(float Throw);
+	void IntendTurnRight(float Throw);
 
 private:
+	// Called from the pathfinding logic by the AI controllers
+	void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
+
 	UTankTrack* LeftTrack = nullptr;
 	UTankTrack* RightTrack = nullptr;
 };
