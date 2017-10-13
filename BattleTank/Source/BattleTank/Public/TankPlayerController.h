@@ -22,6 +22,11 @@ protected:
 		void FoundAimingComponent(UTankAimingComponent* AimComRef);
 
 private:
+	void SetPawn(APawn * InPawn);
+	
+	UFUNCTION()
+	void OnPossessedTankDeath();
+	
 	void BeginPlay() override;
 
 	void Tick(float) override;
@@ -46,4 +51,7 @@ private:
 	bool GetLookDirection(FVector2D screenLocation, FVector& LookDirection) const;
 
 	bool GetLookVectorHitLocation(FVector, FVector&) const;
+
+	//UFUNCTION()
+	//	void OnTankDeath();
 };
